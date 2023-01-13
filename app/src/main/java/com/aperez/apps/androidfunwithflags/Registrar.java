@@ -45,6 +45,9 @@ public class Registrar extends AppCompatActivity {
             if(id > 0){
                 Toast.makeText(this, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
                 Limpiar();
+                Intent intent = new Intent(this,SettingsActivity.class);
+                //intent.putExtra("nombre", (usuario.getNombre() ));
+                startActivity(intent);
             }else
                 Toast.makeText(this, "Usuario no registrado", Toast.LENGTH_LONG).show();
 

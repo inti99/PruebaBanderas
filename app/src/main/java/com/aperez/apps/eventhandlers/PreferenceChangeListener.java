@@ -31,15 +31,24 @@ public class PreferenceChangeListener implements OnSharedPreferenceChangeListene
             if (regions != null && regions.size() > 0) {
                 this.mainActivity.getQuizViewModel().setRegionsSet(regions);
                 this.mainActivity.getQuizFragment().resetQuiz();
+                Toast.makeText(this.mainActivity, regions.toString(),
+                        Toast.LENGTH_LONG).show();
             } else {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 regions.add(this.mainActivity.getString(R.string.default_region));
                 editor.putStringSet(this.mainActivity.getREGIONS(), regions);
-                editor.apply();
+
+                Toast.makeText(this.mainActivity, regions.toString(),
+                        Toast.LENGTH_LONG).show();
+
+
                 Toast.makeText(this.mainActivity, R.string.default_region_message,
                         Toast.LENGTH_LONG).show();
+                editor.apply();
+
             }
         }
+
 
         Toast.makeText(this.mainActivity, R.string.restarting_quiz,
                 Toast.LENGTH_SHORT).show();
