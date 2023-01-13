@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.aperez.apps.androidfunwithflags.MainActivity;
 import com.aperez.apps.androidfunwithflags.R;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class PreferenceChangeListener implements OnSharedPreferenceChangeListener {
@@ -47,6 +48,15 @@ public class PreferenceChangeListener implements OnSharedPreferenceChangeListene
                 editor.apply();
 
             }
+            ArrayList<String> lis=new ArrayList<String>();
+            for(String c:regions){
+                Toast.makeText(this.mainActivity, c,
+                        Toast.LENGTH_LONG).show();
+                lis.add((c));
+            }
+            lis.size();
+
+
         }
 
 

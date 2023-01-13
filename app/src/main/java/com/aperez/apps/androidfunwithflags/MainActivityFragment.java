@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import com.aperez.apps.eventhandlers.GuessButtonListener;
 import com.aperez.apps.lifecyclehelpers.QuizViewModel;
@@ -46,6 +47,7 @@ public class MainActivityFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.quizViewModel = ViewModelProviders.of(getActivity()).get(QuizViewModel.class);
+
     }
 
     @Override
@@ -84,6 +86,7 @@ public class MainActivityFragment extends Fragment {
                 (row.getChildAt(column)).setOnClickListener(guessButtonListener);
             }
         }
+        Log.d("CREATION", this.guessTableRows.toString());
 
         this.questionNumberTextView.setText(
                 getString(R.string.question, 1, QuizViewModel.getFlagsInQuiz()));
@@ -120,6 +123,7 @@ public class MainActivityFragment extends Fragment {
                 ++flagCounter;
             }
         }
+
 
         this.updateGuessRows();
         this.loadNextFlag();
